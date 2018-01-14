@@ -17,8 +17,8 @@
   <ion-card>
     <ion-card-content>
       Latest Picture:
-      <img [src]="image" *ngIf="image" />
+      <img [src]="image" *ngIf="image" (click)="PhotoViewer()"/>
     </ion-card-content>
   </ion-card>
-   <button ion-button (click)="onTakePicture()">Take a Picture</button>
+   <button ion-button (click)="onTakePicture()">拍攝照片</button><button ion-button style="float:right;" (click)="onChoosePicture()">選擇照片</button>
 </ion-content>

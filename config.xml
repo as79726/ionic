@@ -93,5 +93,6 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value="" />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="" />
     </plugin>
-    <engine name="ios" spec="4.5.4" />
+    <engine name="ios" spec="~4.5.4" />
+    <plugin name="com-sarriaroman-photoviewer" spec="^1.1.11" />
 </widget>
