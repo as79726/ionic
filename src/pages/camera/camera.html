@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>camera</ion-title>
   </ion-navbar>
 
@@ -17,8 +20,9 @@
   <ion-card>
     <ion-card-content>
       Latest Picture:
-      <img [src]="image" *ngIf="image" (click)="PhotoViewer()"/>
+      <img [src]="image" *ngIf="image" (click)="PhotoViewer()" />
     </ion-card-content>
   </ion-card>
-   <button ion-button (click)="onTakePicture()">拍攝照片</button><button ion-button style="float:right;" (click)="onChoosePicture()">選擇照片</button>
+  <button ion-button (click)="onTakePicture()">拍攝照片</button>
+  <button ion-button style="float:right;" (click)="onChoosePicture()">選擇照片</button>
 </ion-content>

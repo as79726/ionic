@@ -1,10 +1,7 @@
 import { Component } from "@angular/core";
-import {
-  NavController,
-  NavParams,
-  AlertController
-} from "ionic-angular";
-import { Camera, CameraOptions, PhotoViewer } from "@ionic-native/camera";
+import { NavController, NavParams, AlertController } from "ionic-angular";
+import { Camera, CameraOptions } from "@ionic-native/camera";
+import { PhotoViewer } from "@ionic-native/photo-viewer";
 /**
  * Generated class for the CameraPage page.
  *
@@ -21,14 +18,11 @@ export class CameraPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private camera: Camera,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    private photoViewer: PhotoViewer
   ) {}
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad CameraPage");
-  }
-
-  image: string;
+  image: string = "";
 
   onTakePicture() {
     const options: CameraOptions = {
@@ -37,7 +31,7 @@ export class CameraPage {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      saveToPhotoAlbum:true
+      saveToPhotoAlbum: true
     };
 
     this.camera.getPicture(options).then(
@@ -50,15 +44,14 @@ export class CameraPage {
     );
   }
 
-
-  onChoosePicture(){
+  onChoosePicture() {
     const options: CameraOptions = {
       quality: 100,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      saveToPhotoAlbum:true
+      saveToPhotoAlbum: true
     };
 
     this.camera.getPicture(options).then(
@@ -78,5 +71,9 @@ export class CameraPage {
       buttons: ["OK"]
     });
     alert.present();
+  }
+
+  PhotoViewer() {
+    if (this.image != "") this.photoViewer.show(this.image, "拍摄照片");
   }
 }

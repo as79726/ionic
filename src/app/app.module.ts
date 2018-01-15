@@ -10,6 +10,7 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { CameraPage } from "../pages/camera/camera";
 import { Camera } from "@ionic-native/camera";
+import { PhotoViewer } from "@ionic-native/photo-viewer";
 @NgModule({
   declarations: [MyApp, HomePage, ListPage, CameraPage],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
@@ -19,7 +20,8 @@ import { Camera } from "@ionic-native/camera";
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    Camera
+    Camera,
+    PhotoViewer
   ]
 })
 export class AppModule {}
