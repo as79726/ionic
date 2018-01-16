@@ -98,5 +98,5 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="" />
     </plugin>
     <plugin name="com-sarriaroman-photoviewer" spec="^1.1.11" />
-    <engine name="ios" spec="4.5.4" />
+    <engine name="ios" spec="~4.5.4" />
 </widget>
