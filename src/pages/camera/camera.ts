@@ -65,12 +65,12 @@ export class CameraPage {
   }
 
   displayErrorAlert(err) {
-    let alert = this.alertCtrl.create({
+    /*let alert = this.alertCtrl.create({
       title: "Error",
       subTitle: err,
       buttons: ["OK"]
     });
-    alert.present();
+    alert.present();*/
   }
 
   PhotoViewer() {

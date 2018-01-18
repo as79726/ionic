@@ -98,5 +98,15 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="" />
     </plugin>
     <plugin name="com-sarriaroman-photoviewer" spec="^1.1.11" />
-    <engine name="ios" spec="~4.5.4" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.1.1">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAbxaUhUn_uWBo0_dXeIroVSGuWU-PrQoY" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyAbxaUhUn_uWBo0_dXeIroVSGuWU-PrQoY" />
+        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="Show your location on the map" />
+        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="Trace your location on the map" />
+    </plugin>
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
+    </plugin>
+    <engine name="ios" spec="4.5.4" />
 </widget>

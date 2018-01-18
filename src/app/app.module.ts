@@ -11,17 +11,23 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { CameraPage } from "../pages/camera/camera";
 import { Camera } from "@ionic-native/camera";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
+import { MapPage } from "../pages/map/map";
+import { GoogleMaps } from "@ionic-native/google-maps";
+import { Geolocation } from "@ionic-native/geolocation";
+
 @NgModule({
-  declarations: [MyApp, HomePage, ListPage, CameraPage],
+  declarations: [MyApp, HomePage, ListPage, CameraPage, MapPage],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, ListPage, CameraPage],
+  entryComponents: [MyApp, HomePage, ListPage, CameraPage, MapPage],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Camera,
-    PhotoViewer
+    PhotoViewer,
+    GoogleMaps,
+    Geolocation
   ]
 })
 export class AppModule {}
