@@ -12,7 +12,7 @@ import { CameraPage } from "../pages/camera/camera";
 import { Camera } from "@ionic-native/camera";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { MapPage } from "../pages/map/map";
-import { GoogleMaps } from "@ionic-native/google-maps";
+import { GoogleMaps, Geocoder } from "@ionic-native/google-maps";
 import { Geolocation } from "@ionic-native/geolocation";
 
 @NgModule({
@@ -27,7 +27,8 @@ import { Geolocation } from "@ionic-native/geolocation";
     Camera,
     PhotoViewer,
     GoogleMaps,
-    Geolocation
+    Geolocation,
+    Geocoder
   ]
 })
 export class AppModule {}

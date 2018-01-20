@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
-import { NavController, NavParams } from "ionic-angular";
+import { NavController, NavParams , AlertController } from "ionic-angular";
 import { Geolocation } from "@ionic-native/geolocation";
 
 import {
@@ -10,7 +10,10 @@ import {
   CameraPosition,
   MarkerOptions,
   LatLng,
-  Marker
+  Marker,
+  Geocoder,
+  GeocoderRequest,
+  GeocoderResult
 } from "@ionic-native/google-maps";
 
 /**
@@ -28,11 +31,14 @@ export class MapPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private geolocation: Geolocation
+    private geocoder: Geocoder,
+    private geolocation: Geolocation,
+    private alertCtrl: AlertController
   ) {}
 
   @ViewChild("map") mapElement: ElementRef;
   map: GoogleMap;
+  myPosition: any = {};
 
   ionViewDidLoad() {
     this.loadMap();
@@ -44,6 +50,11 @@ export class MapPage {
         position.coords.latitude,
         position.coords.longitude
       );
+
+      this.myPosition = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      };
 
       let mapOptions: GoogleMapOptions = {
         camera: {
@@ -72,19 +83,38 @@ export class MapPage {
         this.map.animateCamera(mapOptions);
         */
 
-        this.map
-          .addMarker({
-            title: "Ionic",
-            icon: "blue",
-            animation: "DROP",
-            position: latlng
-          })
-          .then(marker => {
-            marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-              alert("clicked");
-            });
+        let markerOptions: MarkerOptions = {
+          title: "Ionic",
+          icon: "blue",
+          animation: "DROP",
+          position: latlng
+        };
+        this.map.addMarker(markerOptions).then(marker => {
+          this.doGeocode(marker);
+          marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+            alert("clicked");
           });
+        });
       });
     });
   }
+
+  //在google map 上顯示街道名稱
+  doGeocode(marker) {
+    let request: GeocoderRequest = {
+      position: new LatLng(this.myPosition.latitude, this.myPosition.longitude)
+    };
+    this.geocoder.geocode(request).then((results: GeocoderResult[]) => {
+
+      let address = [
+        (results[0].thoroughfare || "") +
+          " " +
+          (results[0].subThoroughfare || ""),
+        results[0].locality
+      ].join(", ");
+      marker.setTitle(address);
+      marker.showInfoWindow();
+    });
+  }
+
 }
