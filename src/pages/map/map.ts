@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
-import { NavController, NavParams , AlertController } from "ionic-angular";
+import { NavController, NavParams } from "ionic-angular";
 import { Geolocation } from "@ionic-native/geolocation";
 
 import {
@@ -7,10 +7,8 @@ import {
   GoogleMap,
   GoogleMapsEvent,
   GoogleMapOptions,
-  CameraPosition,
   MarkerOptions,
   LatLng,
-  Marker,
   Geocoder,
   GeocoderRequest,
   GeocoderResult
@@ -31,9 +29,7 @@ export class MapPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private geocoder: Geocoder,
-    private geolocation: Geolocation,
-    private alertCtrl: AlertController
+    private geolocation: Geolocation
   ) {}
 
   @ViewChild("map") mapElement: ElementRef;
@@ -104,7 +100,7 @@ export class MapPage {
     let request: GeocoderRequest = {
       position: new LatLng(this.myPosition.latitude, this.myPosition.longitude)
     };
-    this.geocoder.geocode(request).then((results: GeocoderResult[]) => {
+    Geocoder.geocode(request).then((results: GeocoderResult[]) => {
 
       let address = [
         (results[0].thoroughfare || "") +

@@ -51,7 +51,7 @@ export class CameraPage {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      saveToPhotoAlbum: true
+      saveToPhotoAlbum: false
     };
 
     this.camera.getPicture(options).then(
