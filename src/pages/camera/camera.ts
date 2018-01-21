@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NavController, NavParams, AlertController } from "ionic-angular";
 import { Camera, CameraOptions } from "@ionic-native/camera";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
+import { DomSanitizer } from "@angular/platform-browser";
 /**
  * Generated class for the CameraPage page.
  *
@@ -19,10 +20,11 @@ export class CameraPage {
     public navParams: NavParams,
     private camera: Camera,
     public alertCtrl: AlertController,
-    private photoViewer: PhotoViewer
+    private photoViewer: PhotoViewer,
+    private sanitizer: DomSanitizer
   ) {}
 
-  image: string = "";
+  image;
 
   onTakePicture() {
     const options: CameraOptions = {
@@ -36,7 +38,9 @@ export class CameraPage {
 
     this.camera.getPicture(options).then(
       imageData => {
-        this.image = "data:image/jpeg;base64," + imageData;
+        this.image = this.sanitizer.bypassSecurityTrustUrl(
+          "data:image/jpeg;base64," + imageData
+        );
       },
       err => {
         this.displayErrorAlert(err);
@@ -56,7 +60,9 @@ export class CameraPage {
 
     this.camera.getPicture(options).then(
       imageData => {
-        this.image = "data:image/jpeg;base64," + imageData;
+        this.image = this.sanitizer.bypassSecurityTrustUrl(
+          "data:image/jpeg;base64," + imageData
+        );
       },
       err => {
         this.displayErrorAlert(err);
