@@ -14,12 +14,13 @@ import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { MapPage } from "../pages/map/map";
 import { GoogleMaps, Geocoder } from "@ionic-native/google-maps";
 import { Geolocation } from "@ionic-native/geolocation";
+import { AlertPage } from '../pages/alert/alert';
 
 @NgModule({
-  declarations: [MyApp, HomePage, ListPage, CameraPage, MapPage],
+  declarations: [MyApp, HomePage, ListPage, CameraPage, MapPage, AlertPage],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, ListPage, CameraPage, MapPage],
+  entryComponents: [MyApp, HomePage, ListPage, CameraPage, MapPage, AlertPage],
   providers: [
     StatusBar,
     SplashScreen,

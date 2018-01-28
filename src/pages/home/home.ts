@@ -1,22 +1,42 @@
-import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { Component } from "@angular/core";
+import {
+  NavController,
+  ActionSheetController
+} from "ionic-angular";
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: "page-home",
+  templateUrl: "home.html"
 })
 export class HomePage {
+  constructor(
+    private navCtrl: NavController,
+    private actionSheetCtrl: ActionSheetController
+  ) {}
 
-  constructor(public navCtrl: NavController,private alertCtrl: AlertController) {
 
-  }
 
-  click(value:string){
-    let alert = this.alertCtrl.create({
-      title: "alertCtrl",
-      subTitle: value,
-      buttons: ["OK"]
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: "Modify your album",
+      buttons: [
+        {
+          text: "確認",
+          role: "destructive",
+          handler: () => {
+            console.log("Destructive clicked");
+          }
+        },
+        {
+          text: "取消",
+          role: "cancel",
+          handler: () => {
+            console.log("Cancel clicked");
+          }
+        }
+      ]
     });
-    alert.present();
+
+    actionSheet.present();
   }
 }

@@ -1,34 +1,40 @@
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Component, ViewChild } from "@angular/core";
+import { Nav, Platform } from "ionic-angular";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { CameraPage } from '../pages/camera/camera';
-import { MapPage } from '../pages/map/map';
+import { HomePage } from "../pages/home/home";
+import { ListPage } from "../pages/list/list";
+import { CameraPage } from "../pages/camera/camera";
+import { MapPage } from "../pages/map/map";
+import { AlertPage } from "../pages/alert/alert";
+
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: "app.html"
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string; component: any }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen
+  ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Camera', component: CameraPage},
-      { title: 'GoogleMap', component: MapPage}
+      { title: "Home", component: HomePage },
+      { title: "List", component: ListPage },
+      { title: "Camera", component: CameraPage },
+      { title: "GoogleMap", component: MapPage },
+      { title: "AlertComponent", component: AlertPage }
     ];
-
   }
 
   initializeApp() {
