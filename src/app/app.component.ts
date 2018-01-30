@@ -8,6 +8,7 @@ import { ListPage } from "../pages/list/list";
 import { CameraPage } from "../pages/camera/camera";
 import { MapPage } from "../pages/map/map";
 import { AlertPage } from "../pages/alert/alert";
+import { CheckboxesPage } from "../pages/checkboxes/checkboxes";
 
 
 @Component({
@@ -33,7 +34,8 @@ export class MyApp {
       { title: "List", component: ListPage },
       { title: "Camera", component: CameraPage },
       { title: "GoogleMap", component: MapPage },
-      { title: "AlertComponent", component: AlertPage }
+      { title: "AlertComponent", component: AlertPage },
+      { title: "Checkboxs", component: CheckboxesPage }
     ];
   }
 
