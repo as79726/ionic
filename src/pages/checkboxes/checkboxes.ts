@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
 
 /**
  * Generated class for the CheckboxesPage page.
@@ -8,17 +8,15 @@ import { NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
-  selector: 'page-checkboxes',
-  templateUrl: 'checkboxes.html',
+  selector: "page-checkboxes",
+  templateUrl: "checkboxes.html"
 })
 export class CheckboxesPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CheckboxesPage');
+    console.log("ionViewDidLoad CheckboxesPage");
   }
-
 }

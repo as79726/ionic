@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
-import { NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { Geolocation } from "@ionic-native/geolocation";
 
 import {
@@ -21,6 +21,7 @@ import {
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
   selector: "page-map",
   templateUrl: "map.html"
@@ -101,7 +102,6 @@ export class MapPage {
       position: new LatLng(this.myPosition.latitude, this.myPosition.longitude)
     };
     Geocoder.geocode(request).then((results: GeocoderResult[]) => {
-
       let address = [
         (results[0].thoroughfare || "") +
           " " +
@@ -112,5 +112,4 @@ export class MapPage {
       marker.showInfoWindow();
     });
   }
-
 }

@@ -1,5 +1,10 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, AlertController } from "ionic-angular";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  AlertController
+} from "ionic-angular";
 import { Camera, CameraOptions } from "@ionic-native/camera";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { DomSanitizer } from "@angular/platform-browser";
@@ -10,6 +15,7 @@ import { DomSanitizer } from "@angular/platform-browser";
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
   selector: "page-camera",
   templateUrl: "camera.html"

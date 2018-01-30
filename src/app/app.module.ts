@@ -9,44 +9,32 @@ import { ListPage } from "../pages/list/list";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { CameraPage } from "../pages/camera/camera";
-import { Camera } from "@ionic-native/camera";
-import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { MapPage } from "../pages/map/map";
-import { GoogleMaps, Geocoder } from "@ionic-native/google-maps";
-import { Geolocation } from "@ionic-native/geolocation";
 import { AlertPage } from "../pages/alert/alert";
 import { CheckboxesPage } from "../pages/checkboxes/checkboxes";
+import { AlertPageModule } from "../pages/alert/alert.module";
+import { CameraPageModule } from "../pages/camera/camera.module";
+import { CheckboxesPageModule } from "../pages/checkboxes/checkboxes.module";
+import { MapPageModule } from "../pages/map/map.module";
+import { ListPageModule } from "../pages/list/list.module";
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    ListPage,
-    CameraPage,
-    MapPage,
-    AlertPage,
-    CheckboxesPage
+  declarations: [MyApp, HomePage],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+    AlertPageModule,
+    CameraPageModule,
+    CheckboxesPageModule,
+    MapPageModule,
+    ListPageModule
   ],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage,
-    CameraPage,
-    MapPage,
-    AlertPage,
-    CheckboxesPage
-  ],
+  entryComponents: [MyApp, HomePage],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    Camera,
-    PhotoViewer,
-    GoogleMaps,
-    Geolocation,
-    Geocoder
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule {}
