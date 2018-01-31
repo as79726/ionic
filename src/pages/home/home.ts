@@ -1,9 +1,11 @@
 import { Component } from "@angular/core";
 import {
+  IonicPage,
   NavController,
   ActionSheetController
 } from "ionic-angular";
 
+@IonicPage()
 @Component({
   selector: "page-home",
   templateUrl: "home.html"

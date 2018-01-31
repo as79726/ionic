@@ -103,10 +103,8 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
-    <allow-navigation href="http://192.168.1.101:8100" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.1.1">
         <variable name="API_KEY_FOR_IOS" value="AIzaSyAbxaUhUn_uWBo0_dXeIroVSGuWU-PrQoY" />
     </plugin>
-    <allow-navigation href="http://172.20.10.2:8100" />
     <engine name="ios" spec="4.5.4" />
 </widget>

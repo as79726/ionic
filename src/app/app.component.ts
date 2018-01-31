@@ -3,13 +3,6 @@ import { Nav, Platform } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
-import { HomePage } from "../pages/home/home";
-import { ListPage } from "../pages/list/list";
-import { CameraPage } from "../pages/camera/camera";
-import { MapPage } from "../pages/map/map";
-import { AlertPage } from "../pages/alert/alert";
-import { CheckboxesPage } from "../pages/checkboxes/checkboxes";
-
 
 @Component({
   templateUrl: "app.html"
@@ -17,7 +10,7 @@ import { CheckboxesPage } from "../pages/checkboxes/checkboxes";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: string = "HomePage";
 
   pages: Array<{ title: string; component: any }>;
 
@@ -30,12 +23,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: "Home", component: HomePage },
-      { title: "List", component: ListPage },
-      { title: "Camera", component: CameraPage },
-      { title: "GoogleMap", component: MapPage },
-      { title: "AlertComponent", component: AlertPage },
-      { title: "Checkboxs", component: CheckboxesPage }
+      { title: "Home", component: "HomePage" },
+      { title: "List", component: "ListPage" },
+      { title: "Camera", component: "CameraPage" },
+      { title: "GoogleMap", component: "MapPage" },
+      { title: "AlertComponent", component: "AlertPage" },
+      { title: "Checkboxs", component: "CheckboxesPage" }
     ];
   }
 
